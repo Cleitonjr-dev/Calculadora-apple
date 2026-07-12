@@ -32,7 +32,7 @@ class Memory {
         command != '=';
   }
 
-  _setOperation(String newOperation) {
+  void _setOperation(String newOperation) {
     bool isEqualSign = newOperation == '=';
     if (_bufferIndex == 0) {
       if (!isEqualSign) {
@@ -53,7 +53,7 @@ class Memory {
     _wipeValue = true;
   }
 
-  _addDigit(String digit) {
+  void _addDigit(String digit) {
     final isDot = digit == '.';
     final wipeValue = (_value == '0' && !isDot) || _wipeValue;
 
@@ -69,7 +69,7 @@ class Memory {
     _buffer[_bufferIndex] = double.tryParse(_value) ?? 0;
   }
 
-  _allClear() {
+  void _allClear() {
     _value = '0';
     _buffer.setAll(0, [0.0, 0.0]);
     _bufferIndex = 0;
