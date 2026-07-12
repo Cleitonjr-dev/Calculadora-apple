@@ -1,10 +1,9 @@
-// ignore_for_file: use_key_in_widget_constructors, constant_identifier_names, unnecessary_this
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
-  static const DARK = Color.fromRGBO(82, 82, 82, 1);
-  static const DEFAULT = Color.fromRGBO(112, 112, 112, 1);
-  static const OPERATION = Color.fromRGBO(250, 158, 13, 1);
+  static const dark = Color.fromRGBO(82, 82, 82, 1);
+  static const defaultColor = Color.fromRGBO(112, 112, 112, 1);
+  static const operationColor = Color.fromRGBO(250, 158, 13, 1);
 
   final String text;
   final bool big;
@@ -12,21 +11,26 @@ class Button extends StatelessWidget {
   final void Function(String) cb;
 
   const Button({
+    super.key,
     required this.text,
     this.big = false,
-    this.color = DEFAULT,
+    this.color = defaultColor,
     required this.cb,
   });
+
   const Button.big({
+    super.key,
     required this.text,
     this.big = true,
-    this.color = DEFAULT,
+    this.color = defaultColor,
     required this.cb,
   });
+
   const Button.operation({
+    super.key,
     required this.text,
     this.big = false,
-    this.color = OPERATION,
+    this.color = operationColor,
     required this.cb,
   });
 
@@ -35,12 +39,15 @@ class Button extends StatelessWidget {
     return Expanded(
       flex: big ? 2 : 1,
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(primary: this.color),
+        style: ElevatedButton.styleFrom(backgroundColor: color),
         onPressed: () => cb(text),
         child: Text(
           text,
           style: const TextStyle(
-              color: Colors.white, fontSize: 32, fontWeight: FontWeight.w200),
+            color: Colors.white,
+            fontSize: 32,
+            fontWeight: FontWeight.w200,
+          ),
         ),
       ),
     );

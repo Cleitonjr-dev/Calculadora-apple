@@ -1,11 +1,10 @@
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors_in_immutables, avoid_unnecessary_containers
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
 class Display extends StatelessWidget {
- 
   final String text;
-  Display(this.text);
+
+  const Display(this.text, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,8 @@ class Display extends StatelessWidget {
                   decoration: TextDecoration.none,
                   fontSize: 80,
                   color: Colors.white,
-                ),                ),
+                ),
+              ),
             ),
           ],
         ),
